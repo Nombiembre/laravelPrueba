@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('job_vacancies', function (Blueprint $table) {
             $table->id();
             $table->foreignId('company_id');
+            $table->text('titulo');
             $table->text('descripcion');
             $table->text('salario', 12,2)->check('salario >= 1300000');
             $table->string('ciudad');
-            $table->enum('nivel_educativo_minimo', ['bachillerato', 'técnico', 'tecnólogo', 'profesiona']);
+            $table->enum('nivel_educativo', ['bachillerato', 'técnico', 'tecnólogo', 'profesional']);
             $table->unsignedTinyInteger('años_experiencia');
             $table->unsignedSmallInteger('numero_vacantes')->deffault(1);
             $table->date('fecha_cierre');

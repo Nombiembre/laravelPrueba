@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('telefono');
             $table->date('fecha_nacimiento');
             $table->string('ciudad');
-            $table->enum('nivel_educativo', ['bachillerato', 'técnico', 'tecnólogo', 'profesiona']);
+            $table->enum('nivel_educativo', ['bachillerato', 'técnico', 'tecnólogo', 'profesional']);
             $table->unsignedTinyInteger('años_experiencia');
             $table->boolean('es_joven')->default(false);
             $table->enum('estado', ['activo','colocado'])->default('activo');
