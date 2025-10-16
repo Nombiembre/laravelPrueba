@@ -12,4 +12,9 @@ class JobVacancy extends Model
      public function company(): BelongsTo{
         return $this->belongsTo(Company::class);
     }
+
+       public static function getById($id)
+    {
+        return self::find($id);
+    }
 }

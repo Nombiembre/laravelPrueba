@@ -25,8 +25,10 @@
       <p class="text-gray-900 font-medium">{{ $job->ciudad }}</p>
     </div>
     <div>
-      <p class="text-sm text-gray-500 mb-1">Creado en</p>
-      <p class="text-gray-900 font-medium">{{ \Carbon\Carbon::parse($job->created_at)->format('d/m/Y') }}</p>
+      <p class="text-sm text-gray-500 mb-1">Creada en</p>
+      <p class="text-gray-900 font-medium">{{ \Carbon\Carbon::parse($job->created_at)
+       ->locale('es') 
+       ->isoFormat('D [de] MMMM [de] YYYY') }}</p>
     </div>
     <div>
       <p class="text-sm text-gray-500 mb-1">Total Vacantes</p>

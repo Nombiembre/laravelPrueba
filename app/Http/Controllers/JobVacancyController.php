@@ -12,7 +12,9 @@ class JobVacancyController extends Controller
      */
     public function index()
     {
-        //
+        $jobs = JobVacancy::all();
+        
+        return view('vacantes.index', compact('jobs'));
     }
 
     /**
