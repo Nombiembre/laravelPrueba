@@ -29,7 +29,7 @@
           @if ($job->años_experiencia === 0)
             Sin experiencia
           @elseif ($job->años_experiencia === 1)
-          {{ $job->años_experiencia }} Año de Experiencia
+            {{ $job->años_experiencia }} Año de Experiencia
           @else
             {{ $job->años_experiencia }} Años de Experiencia
           @endif
@@ -47,21 +47,45 @@
       @endif
     </div>
 
-    <a href="/vacantes/{{ $job->id }}" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Ver Detalles
-      →</a>
+    @if (!$endDate)
+      <a href="/vacantes/{{ $job->id }}" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Ver
+        Detalles
+        →</a>
+    @endif
   </div>
 
   @if ($endDate)
-    <div class="flex items-center justify-between mt-4">
-      <div class="flex gap-1 text-gray-500 text-sm">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"
-          viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-          <path class="fill-current"
-            d="M160 64C142.3 64 128 78.3 128 96C128 113.7 142.3 128 160 128L160 139C160 181.4 176.9 222.1 206.9 252.1L274.8 320L206.9 387.9C176.9 417.9 160 458.6 160 501L160 512C142.3 512 128 526.3 128 544C128 561.7 142.3 576 160 576L480 576C497.7 576 512 561.7 512 544C512 526.3 497.7 512 480 512L480 501C480 458.6 463.1 417.9 433.1 387.9L365.2 320L433.1 252.1C463.1 222.1 480 181.4 480 139L480 128C497.7 128 512 113.7 512 96C512 78.3 497.7 64 480 64L160 64zM224 139L224 128L416 128L416 139C416 164.5 405.9 188.9 387.9 206.9L320 274.8L252.1 206.9C234.1 188.9 224 164.4 224 139z" />
-        </svg>
-        <span>Cierra el
-          {{ \Carbon\Carbon::parse($job->created_at)->locale('es')->isoFormat('D [de] MMMM [de] YYYY') }}</span>
+    <div class="flex items-center justify-between">
+
+      @php
+        $fechaCierre = \Carbon\Carbon::parse($job->fecha_cierre);
+          $diasRestantes = now()->diffInDays($fechaCierre, false);
+      @endphp
+      <div class="flex items-center justify-between mt-4">
+        <div class="text-sm flex gap-1
+        @if ($diasRestantes <= 7)
+            text-red-700 font-semibold opacity-90
+        @else
+            text-gray-500 
+        @endif
+    ">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"
+            viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+            <path class="fill-current"
+              d="M160 64C142.3 64 128 78.3 128 96C128 113.7 142.3 128 160 128L160 139C160 181.4 176.9 222.1 206.9 252.1L274.8 320L206.9 387.9C176.9 417.9 160 458.6 160 501L160 512C142.3 512 128 526.3 128 544C128 561.7 142.3 576 160 576L480 576C497.7 576 512 561.7 512 544C512 526.3 497.7 512 480 512L480 501C480 458.6 463.1 417.9 433.1 387.9L365.2 320L433.1 252.1C463.1 222.1 480 181.4 480 139L480 128C497.7 128 512 113.7 512 96C512 78.3 497.7 64 480 64L160 64zM224 139L224 128L416 128L416 139C416 164.5 405.9 188.9 387.9 206.9L320 274.8L252.1 206.9C234.1 188.9 224 164.4 224 139z" />
+          </svg>
+
+          <div>
+            <span>
+              Cierra el {{ $fechaCierre->locale('es')->isoFormat('D [de] MMMM [de] YYYY') }}
+            </span>
+          </div>
+
+        </div>
       </div>
+      <a href="/vacantes/{{ $job->id }}" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Ver
+        Detalles
+        →</a>
     </div>
   @endif
 </article>
