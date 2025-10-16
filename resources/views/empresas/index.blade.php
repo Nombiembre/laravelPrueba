@@ -1,7 +1,7 @@
 <x-layout>
-  <div class="my-8">
-    <h2 class="text-3xl font-bold text-foreground">Empresas</h2>
-  </div>
+   <x-common.title href="/empresas/create" :createButton=true>
+    Empresas
+  </x-common.title>
   <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
     @forelse ($companies as $company)
       <div class="flex flex-col rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-all  space-y-3">

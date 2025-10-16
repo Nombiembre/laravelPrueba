@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\JobVacancyController;
+use App\Http\Controllers\ParticipantController;
 use App\Models\Company;
 use App\Models\JobVacancy;
 use Illuminate\Support\Facades\Route;
@@ -20,9 +21,13 @@ Route::get('/empresas/{id}', function ($id) {
 });
 
 Route::get('/vacantes', [JobVacancyController::class, 'index']);
+Route::get('/vacantes/create', [JobVacancyController::class, 'create']);
 Route::get('/vacantes/{id}', function ($id) {
     $job = JobVacancy::getById($id);
     $company = $job->company;
 
     return view('vacantes.show', ['company' => $company, 'job' => $job]); // mantenemos 'job' como nombre de variable
 });
+
+Route::get('/participantes', [ParticipantController::class, 'index']);
+Route::get('/participantes/{id}', [ParticipantController::class, 'show'])->name('participantes.show');

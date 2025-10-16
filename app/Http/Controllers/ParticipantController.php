@@ -12,7 +12,16 @@ class ParticipantController extends Controller
      */
     public function index()
     {
-        //
+        $users = Participant::all();
+        return view('participantes.index', ['users' => $users]);
+    }
+
+    public function show($id)
+    {
+        // Busca el participante por su ID
+        $participante = Participant::findOrFail($id);
+        // Retorna la vista 'show' y le pasa el participante
+        return view('participantes.show', compact('participante'));
     }
 
     /**
@@ -31,13 +40,6 @@ class ParticipantController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Participant $participant)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
