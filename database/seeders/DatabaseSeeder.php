@@ -10,10 +10,8 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        // timestamps comunes
         $now = Carbon::now()->format('Y-m-d H:i:s');
 
-        // 1) Crear 3 empresas manualmente y guardar sus IDs
         $companiesData = [
             [
                 'nit' => '900123456-1',
@@ -52,7 +50,6 @@ class DatabaseSeeder extends Seeder
             $companyIds[] = DB::table('companies')->insertGetId($company);
         }
 
-        // 2) Crear 10 participantes (datos fijos)
         $participantsData = [
             [
                 'numero_documento' => '10000001',
@@ -60,7 +57,7 @@ class DatabaseSeeder extends Seeder
                 'apellidos' => 'Pérez',
                 'email' => 'juan.perez@example.com',
                 'telefono' => '3001112233',
-                'fecha_nacimiento' => '1998-06-15', // joven
+                'fecha_nacimiento' => '1998-06-15', 
                 'ciudad' => 'Bogotá',
                 'nivel_educativo' => 'profesional',
                 'años_experiencia' => 3,
@@ -72,7 +69,7 @@ class DatabaseSeeder extends Seeder
                 'apellidos' => 'Gómez',
                 'email' => 'maria.gomez@example.com',
                 'telefono' => '3002223344',
-                'fecha_nacimiento' => '1990-04-10', // no joven
+                'fecha_nacimiento' => '1990-04-10',
                 'ciudad' => 'Cali',
                 'nivel_educativo' => 'tecnólogo',
                 'años_experiencia' => 8,
@@ -84,7 +81,7 @@ class DatabaseSeeder extends Seeder
                 'apellidos' => 'Ruiz',
                 'email' => 'carlos.ruiz@example.com',
                 'telefono' => '3003334455',
-                'fecha_nacimiento' => '2000-09-20', // joven
+                'fecha_nacimiento' => '2000-09-20',
                 'ciudad' => 'Medellín',
                 'nivel_educativo' => 'bachillerato',
                 'años_experiencia' => 1,
@@ -96,7 +93,7 @@ class DatabaseSeeder extends Seeder
                 'apellidos' => 'Martínez',
                 'email' => 'ana.martinez@example.com',
                 'telefono' => '3004445566',
-                'fecha_nacimiento' => '1985-12-01', // no joven
+                'fecha_nacimiento' => '1985-12-01', 
                 'ciudad' => 'Barranquilla',
                 'nivel_educativo' => 'profesional',
                 'años_experiencia' => 12,
@@ -108,7 +105,7 @@ class DatabaseSeeder extends Seeder
                 'apellidos' => 'Torres',
                 'email' => 'diego.torres@example.com',
                 'telefono' => '3005556677',
-                'fecha_nacimiento' => '1997-03-08', // joven
+                'fecha_nacimiento' => '1997-03-08', 
                 'ciudad' => 'Bucaramanga',
                 'nivel_educativo' => 'técnico',
                 'años_experiencia' => 4,
@@ -120,7 +117,7 @@ class DatabaseSeeder extends Seeder
                 'apellidos' => 'Sosa',
                 'email' => 'lucia.sosa@example.com',
                 'telefono' => '3006667788',
-                'fecha_nacimiento' => '1995-11-30', // no joven (29)
+                'fecha_nacimiento' => '1995-11-30',
                 'ciudad' => 'Pereira',
                 'nivel_educativo' => 'tecnólogo',
                 'años_experiencia' => 6,
@@ -132,7 +129,7 @@ class DatabaseSeeder extends Seeder
                 'apellidos' => 'López',
                 'email' => 'andres.lopez@example.com',
                 'telefono' => '3007778899',
-                'fecha_nacimiento' => '2001-01-05', // joven
+                'fecha_nacimiento' => '2001-01-05', 
                 'ciudad' => 'Cali',
                 'nivel_educativo' => 'bachillerato',
                 'años_experiencia' => 0,
@@ -144,7 +141,7 @@ class DatabaseSeeder extends Seeder
                 'apellidos' => 'Ramírez',
                 'email' => 'sofia.ramirez@example.com',
                 'telefono' => '3008889900',
-                'fecha_nacimiento' => '1988-08-22', // no joven
+                'fecha_nacimiento' => '1988-08-22',
                 'ciudad' => 'Medellín',
                 'nivel_educativo' => 'profesional',
                 'años_experiencia' => 10,
@@ -156,7 +153,7 @@ class DatabaseSeeder extends Seeder
                 'apellidos' => 'Herrera',
                 'email' => 'mateo.herrera@example.com',
                 'telefono' => '3009990011',
-                'fecha_nacimiento' => '1999-07-30', // joven
+                'fecha_nacimiento' => '1999-07-30', 
                 'ciudad' => 'Bogotá',
                 'nivel_educativo' => 'técnico',
                 'años_experiencia' => 2,
@@ -168,7 +165,7 @@ class DatabaseSeeder extends Seeder
                 'apellidos' => 'Vega',
                 'email' => 'paula.vega@example.com',
                 'telefono' => '3001011121',
-                'fecha_nacimiento' => '1996-09-10', // cumple 29 en 2025 -> no joven
+                'fecha_nacimiento' => '1996-09-10', 
                 'ciudad' => 'Cartagena',
                 'nivel_educativo' => 'tecnólogo',
                 'años_experiencia' => 5,
@@ -176,7 +173,7 @@ class DatabaseSeeder extends Seeder
             ],
         ];
 
-        // Insertar participantes calculando es_joven y timestamps
+        // Insertar participantes calculando es_joven
         foreach ($participantsData as $p) {
             $born = Carbon::parse($p['fecha_nacimiento']);
             $isYoung = $born->age < 29; // menor de 29 -> true
@@ -187,7 +184,7 @@ class DatabaseSeeder extends Seeder
             ]));
         }
 
-        // 3) Crear 8 vacantes y asignarlas a las empresas en round-robin
+    
         $vacanciesData = [
             [
                 'titulo' => 'Desarrollador Backend Junior',

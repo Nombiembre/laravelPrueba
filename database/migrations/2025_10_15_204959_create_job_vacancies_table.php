@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('descripcion');
             $table->text('salario', 12,2)->check('salario >= 1300000');
             $table->string('ciudad');
-            $table->enum('nivel_educativo', ['bachillerato', 'técnico', 'tecnólogo', 'profesional']);
+            $table->enum('nivel_educativo', ['bachillerato', 'tecnico', 'tecnologo', 'profesional']);
             $table->unsignedTinyInteger('años_experiencia');
             $table->unsignedSmallInteger('numero_vacantes')->deffault(1);
             $table->date('fecha_cierre');

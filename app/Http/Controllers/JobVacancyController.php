@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
 use App\Models\JobVacancy;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,8 @@ class JobVacancyController extends Controller
      */
     public function create()
     {
-        return view('vacantes.create');
+        $companies = Company::all(); 
+         return view('vacantes.create', compact('companies'));
     }
 
     /**

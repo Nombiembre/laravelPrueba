@@ -1,10 +1,10 @@
-@props(['createButton' => false])
+@props(['createButton' => false, 'classes' => ''])
 <div class="my-8 flex justify-between items-center">
-  <h2 class="text-3xl font-bold text-foreground">{{ $slot }}</h2>
+  <h2 class="text-3xl font-bold text-foreground {{ $classes }}">{{ $slot }}</h2>
   
   @if($createButton)
-  <a class="relative inline-flex items-center justify-center w-8 h-8 p-1 rounded-full bg-blue-600 text-white"
-    {{ $attributes }}>
+  <a
+    {{ $attributes->merge(['class' => "relative inline-flex items-center justify-center w-8 h-8 p-1 rounded-full bg-blue-600 text-white"]) }}>
     <svg xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
       <path

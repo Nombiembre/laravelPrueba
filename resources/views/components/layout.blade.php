@@ -30,8 +30,7 @@
 
   <body class="">
       <x-common.header />
-
-    <main class="container pb-10">
+    <main class="container pb-10 ">
       {{ $slot }}
     </main>
 
