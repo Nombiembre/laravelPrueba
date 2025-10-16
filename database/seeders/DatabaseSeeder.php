@@ -263,7 +263,7 @@ class DatabaseSeeder extends Seeder
                 'nivel_educativo' => 'técnico',
                 'experiencia_minima_años' => 0,
                 'numero_vacantes' => 1,
-                'fecha_cierre' => 15,
+                'fecha_cierre' => 6,
                 'estado' => 'publicada',
             ],
             [

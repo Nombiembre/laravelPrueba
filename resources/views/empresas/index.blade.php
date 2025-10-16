@@ -16,10 +16,14 @@
           </div>
 
           <div>
-            <span
-              class="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700">
+            <span @class([
+                'text-sm font-medium px-4 py-2 rounded-full',
+                'bg-red-100 text-red-800' => $company->estado === 'inactiva',
+                'text-gray-700 bg-gray-100' => $company->estado !== 'inactiva',
+            ])>
               {{ $company->estado }}
             </span>
+
           </div>
         </div>
 

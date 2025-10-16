@@ -12,7 +12,14 @@
       </h3>
       <p class="text-sm text-gray-600">{{ $job->ciudad }}</p>
     </div>
-    <span class="text-sm font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded">{{ $job->estado }}</span>
+    <span @class([
+        'text-sm font-medium px-4 py-2 rounded-full',
+        'bg-red-100 text-red-800' => $job->estado === 'cerrada',
+        'text-gray-700 bg-gray-100' => $job->estado !== 'cerrada',
+    ])>
+      {{ $job->estado }}
+    </span>
+
   </div>
   <p class="text-gray-700 mb-4">{{ $job->descripcion }}</p>
 
@@ -59,15 +66,14 @@
 
       @php
         $fechaCierre = \Carbon\Carbon::parse($job->fecha_cierre);
-          $diasRestantes = now()->diffInDays($fechaCierre, false);
+        $diasRestantes = now()->diffInDays($fechaCierre, false);
       @endphp
       <div class="flex items-center justify-between mt-4">
-        <div class="text-sm flex gap-1
-        @if ($diasRestantes <= 7)
-            text-red-700 font-semibold opacity-90
+        <div
+          class="text-sm flex gap-1
+        @if ($diasRestantes <= 7) text-red-700 font-semibold opacity-90
         @else
-            text-gray-500 
-        @endif
+            text-gray-500 @endif
     ">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"
             viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
