@@ -102,3 +102,24 @@ npm run dev
 * Paginación de registros ordenados por `created_at`
 
 ---
+
+## 🧩 Experiencia de desarrollo
+
+Este proyecto representa mi **primera experiencia trabajando con Laravel**.
+Hasta antes de comenzarlo, mi enfoque principal había estado en el desarrollo frontend usando **Astro**, **TailwindCSS** y algunos componentes de **React**, por lo que adentrarme en el ecosistema de Laravel fue un gran reto y una oportunidad de aprendizaje completa.
+
+Durante el proceso tuve que aprender desde cero temas como:
+
+* La estructura del framework MVC de Laravel
+* Uso de controladores, rutas y modelos con Eloquent
+* Validaciones y migraciones en bases de datos
+* Paginación, relaciones entre tablas y Blade Components
+* Integración con XAMPP y entorno local de desarrollo
+
+Aunque el resultado final fue satisfactorio, el progreso se puede ver reflejado en los tiempos y la frecuencia de los commits: al principio más espaciados y llenos de prueba y error, y luego más constantes a medida que dominaba el flujo del framework.
+
+Debo decir que **me gustó mucho trabajar con Laravel**.
+Nunca había experimentado con frameworks backend como **Next.js**, principalmente por sus constantes problemas y configuraciones algo pesadas, pero con Laravel la experiencia fue **mucho más fluida, estable y agradable**. Todo se siente bien integrado y pensado para que el desarrollo sea realmente productivo.
+
+En total, el desarrollo del proyecto —incluyendo las horas invertidas en **videos, documentación y práctica**— tomó aproximadamente **15 horas o más** de trabajo continuo.
+Cada paso fue una lección práctica sobre cómo conectar el frontend con un backend estructurado y potente, y una gran introducción al ecosistema PHP moderno.
