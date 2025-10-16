@@ -48,7 +48,7 @@
         <p class="text-gray-500 italic">Esta empresa no tiene vacantes activas.</p>
       @else
         @foreach ($job->jobs as $vacancy)
-           <x-common.jobCard :job="$vacancy" />
+           <x-common.jobCard :job="$vacancy" :showEducation=true/>
         @endforeach
       @endif
 

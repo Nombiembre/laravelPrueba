@@ -4,7 +4,7 @@
   </div>
     <div class="space-y-4 ">
     @forelse ($jobs as $job)
-           <x-common.jobCard :job="$job" :endDate=true />
+           <x-common.jobCard :job="$job" :endDate=true :showCompany=true/>
     @empty
       <p>No se encuentran compañias por el momento</p>
     @endforelse
