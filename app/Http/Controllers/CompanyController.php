@@ -12,7 +12,9 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        $companies = Company::all();
+        // dd($companies);
+        return view('empresas.index', compact('companies'));
     }
 
     /**

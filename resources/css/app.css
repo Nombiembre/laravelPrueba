@@ -9,3 +9,17 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+
+body {
+    font-family: "Outfit", sans-serif;
+}
+
+.container {
+  --max_width: 1240px;
+  --padding: 1rem;
+
+  width: min(100% - var(--padding) * 2, var(--max_width));
+  margin-inline: auto;
+}
+
