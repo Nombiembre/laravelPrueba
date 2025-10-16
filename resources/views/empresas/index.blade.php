@@ -4,8 +4,7 @@
   </div>
   <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
     @forelse ($companies as $company)
-      <div
-        class="flex flex-col rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-all  space-y-3">
+      <div class="flex flex-col rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-all  space-y-3">
 
         <div class="flex items-center gap-3">
           <div class="flex-1">
@@ -15,9 +14,16 @@
               <span>{{ $company->nit }}</span>
             </div>
           </div>
+
+          <div>
+            <span
+              class="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700">
+              {{ $company->estado }}
+            </span>
+          </div>
         </div>
 
-        <div>
+        <div class="mb-6">
           <div class="flex gap-2 text-slate-700">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 self-end"
               viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
@@ -37,15 +43,6 @@
           </div>
         </div>
 
-        <div class="flex items-center justify-between pt-2">
-          <div class="flex flex-col gap-1">
-            <span class="text-xs text-slate-600">Vacantes Abiertas</span>
-            <span class="text-2xl font-bold text-blue-600">2</span>
-          </div>
-          <span class="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700">
-            {{ $company->estado }}
-          </span>
-        </div>
 
         <x-common.button href="/empresas/{{ $company->id }}">
           Ver Trabajos

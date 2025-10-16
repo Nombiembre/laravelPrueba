@@ -31,7 +31,7 @@
   <body class="">
       <x-common.header />
 
-    <main class="container">
+    <main class="container pb-10">
       {{ $slot }}
     </main>
 
