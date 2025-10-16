@@ -47,6 +47,9 @@
           </div>
         </div>
 
+        <div>
+          {{ $companies->links() }}
+        </div>
 
         <x-common.button href="/empresas/{{ $company->id }}">
           Ver Trabajos

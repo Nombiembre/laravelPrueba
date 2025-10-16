@@ -25,23 +25,7 @@
     </table>
   </div>
 
-
-  <div class="mt-8 flex items-center justify-between">
-    <p class="text-sm text-gray-600">Page 1 of 5</p>
-    <div class="flex gap-2">
-      <a href="#"
-        class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Previous</a>
-      <a href="#"
-        class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">1</a>
-      <a href="#"
-        class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">2</a>
-      <a href="#"
-        class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">3</a>
-      <span class="px-4 py-2 text-sm text-gray-600">...</span>
-      <a href="#"
-        class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">5</a>
-      <a href="#"
-        class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Next</a>
+  <div class="mt-4">
+      {{ $users->links() }}
     </div>
-  </div>
 </x-layout>

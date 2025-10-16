@@ -13,8 +13,10 @@ class JobVacancyController extends Controller
      */
     public function index()
     {
-        $jobs = JobVacancy::with('company')->get();
-        
+        $jobs = JobVacancy::with('company')
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+
         return view('vacantes.index', compact('jobs'));
     }
 
@@ -23,8 +25,9 @@ class JobVacancyController extends Controller
      */
     public function create()
     {
-        $companies = Company::all(); 
-         return view('vacantes.create', compact('companies'));
+        $companies = Company::all();
+
+        return view('vacantes.create', compact('companies'));
     }
 
     /**

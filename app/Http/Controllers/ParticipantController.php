@@ -12,7 +12,7 @@ class ParticipantController extends Controller
      */
     public function index()
     {
-        $users = Participant::all();
+       $users = Participant::orderBy('created_at', 'desc')->paginate(10);
         return view('participantes.index', ['users' => $users]);
     }
 
