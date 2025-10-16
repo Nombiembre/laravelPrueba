@@ -43,13 +43,22 @@ npm install
    cp .env.example .env
    ```
 
-2. Configura las variables de entorno en el archivo `.env` según tu base de datos de **XAMPP**, por ejemplo:
+   
+2. Genera la **key** de la aplicación:
+
+   ```bash
+   php artisan key:generate
+   ```
+
+3. Activa el servicio de xampp de **Apache** y **MySQL**, entra a http://localhost/phpmyadmin/index.php?route=/server/databases, crea una nueva base de datos, anota el nombre ya que será importante para el siguiente paso
+
+3. Configura las variables de entorno en el archivo `.env` según tu base de datos de **XAMPP**, por ejemplo:
 
    ```env
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
     DB_PORT=3306
-    DB_DATABASE=laravel
+    DB_DATABASE=laravel (el nomre que escogiste para la base de datos)
     DB_USERNAME=root
     DB_PASSWORD=
    ```
@@ -61,12 +70,7 @@ npm install
 Crea las tablas de la base de datos e inicializa la seed:
 
 ```bash
-php artisan migrate
-```
-
-
-```bash
-php artisan db:seed
+php artisan migrate --seed
 ```
 
 ---
@@ -94,12 +98,14 @@ npm run dev
 
 ## 🧠 Funcionalidades principales
 
-* Crear **empresas**
-* Crear **vacantes**
-* Registrar **participantes**
-* Cálculo automático del campo `es_joven`
-* Validación de formularios
-* Paginación de registros ordenados por `created_at`
+- [x]  Crear **empresas**
+- [x]  Crear **vacantes**
+- [x]  Registrar **participantes**
+- [x]  Cálculo automático del campo `es_joven`
+- [x]  Validación de formularios
+- [x]  Paginación de registros ordenados por `created_at`
+- [ ] Sistema de postulaciones
+- [ ] Componente Livewire
 
 ---
 
